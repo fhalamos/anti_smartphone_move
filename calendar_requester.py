@@ -7,10 +7,12 @@ import os.path
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
+import yaml
 
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
+config = yaml.load(open('config.yaml', 'r'), Loader=yaml.SafeLoader)
 
 def get_events(day):
 
@@ -41,7 +43,7 @@ def get_events(day):
 
     # Call the Calendar API
     # Default is call for current day events
-    if(day=='mna'):
+    if(day==config['tomorrow_keyworkd']):
 
         tomorrow = (today + datetime.timedelta(days=1))
 
@@ -88,4 +90,4 @@ def get_events(day):
 
 
 if __name__ == '__main__':
-    print(get_events())
+    print(get_events(''))#'tmr'
