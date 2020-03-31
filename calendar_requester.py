@@ -47,9 +47,11 @@ def get_events(day):
 
         tomorrow = (today + datetime.timedelta(days=1))
 
-        tomorrow_morning = datetime.datetime.combine(tomorrow, datetime.datetime.min.time()).isoformat() + 'Z' # 'Z' indicates UTC time. #+ datetime.timedelta(hours=5)
+        tomorrow_morning = (datetime.datetime.combine(tomorrow, datetime.datetime.min.time())+ \
+            datetime.timedelta(hours=5)).isoformat() + 'Z' # 'Z' indicates UTC time. #+ datetime.timedelta(hours=5)
 
-        tomorrow_midnight = datetime.datetime.combine(tomorrow, datetime.datetime.max.time()).isoformat() + 'Z'
+        tomorrow_midnight = (datetime.datetime.combine(tomorrow, datetime.datetime.max.time()) + \
+            datetime.timedelta(hours=5)).isoformat() + 'Z'
 
         events_list = service.events().list(calendarId='primary', timeMin=tomorrow_morning, timeMax=tomorrow_midnight,
                                     maxResults=10, singleEvents=True,
@@ -87,4 +89,4 @@ def get_events(day):
 
 
 if __name__ == '__main__':
-    print(get_events(''))#'tmr'
+    print(get_events('tmr'))#'tmr'
