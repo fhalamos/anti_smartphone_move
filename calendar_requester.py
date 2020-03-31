@@ -38,7 +38,7 @@ def get_events(day):
     service = build('calendar', 'v3', credentials=creds)
 
 
-    today = datetime.datetime.today()
+    today = datetime.datetime.utcnow().date()
 
 
     # Call the Calendar API
@@ -47,22 +47,19 @@ def get_events(day):
 
         tomorrow = (today + datetime.timedelta(days=1))
 
-        tomorrow_morning = (datetime.datetime.combine(tomorrow, datetime.datetime.min.time()) + \
-                                    datetime.timedelta(hours=5)).isoformat() + 'Z' # 'Z' indicates UTC time
+        tomorrow_morning = datetime.datetime.combine(tomorrow, datetime.datetime.min.time()).isoformat() + 'Z' # 'Z' indicates UTC time. #+ datetime.timedelta(hours=5)
 
-        tomorrow_midnight = (datetime.datetime.combine(tomorrow, datetime.datetime.max.time()) + \
-                                    datetime.timedelta(hours=5)).isoformat() + 'Z'
+        tomorrow_midnight = datetime.datetime.combine(tomorrow, datetime.datetime.max.time()).isoformat() + 'Z'
 
         events_list = service.events().list(calendarId='primary', timeMin=tomorrow_morning, timeMax=tomorrow_midnight,
                                     maxResults=10, singleEvents=True,
                                     orderBy='startTime').execute()
     else:
 
-        now = (datetime.datetime.now()+ \
-              datetime.timedelta(hours=5)).isoformat() + 'Z' 
-        
+        now = datetime.datetime.utcnow().isoformat() + 'Z'
+         
         midnight = (datetime.datetime.combine(today, datetime.datetime.max.time()) + \
-                                    datetime.timedelta(hours=5)).isoformat() + 'Z'
+            datetime.timedelta(hours=5)).isoformat() + 'Z'
 
         events_list = service.events().list(calendarId='primary', timeMin=now, timeMax=midnight,
                                         maxResults=10, singleEvents=True,
