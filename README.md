@@ -52,23 +52,23 @@ Get them from twilio.com/user/account
 ` export TWILIO_PHONE_NUMBER=your_twilio_phone_number`
 <!-- ` export TWILIO_PHONE_NUMBER=+16672399039` -->
 
-
-* Need to fill config file config.algo:
-your_twilio_phone_number (config file)
-tomorrow_keyword='tmr' #I use that for tomorrow
+* Adapt config.yaml file to whatever you want your 'tomorrow' keyword to be
 
 ## Get the system running
 
 * Log into a aws server
+
 `ssh -i your_aws_keypair.pem ubuntu@public_dns`
 <!-- `ssh -i aws_keypair.pem ubuntu@ec2-54-165-154-230.compute-1.amazonaws.com` -->
 
 * To keep the web app and the Twilio listener alive after closing the console, use *screen*
 
 * Set the web app running
-`receive_sms_api.py`
+
+`python3 receive_sms_api.py`
 
 * Configure your Twilio phone number to call a webhook URL whenever a new message comes in:
+
 `twilio phone-numbers:update "$TWILIO_PHONE_NUMBER" --sms-url="http://localhost:5000/sms"`
 
 Thats all!
