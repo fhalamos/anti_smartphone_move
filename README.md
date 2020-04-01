@@ -10,9 +10,9 @@ I figure out I really dont need the smartphone. I don't need to be checking emai
 
 *The only thing I do need to frequently check in my phone is my calendar for the day/following day.* At least my calendar is something I continuously need to check, and I don't want to turn my computer on for that.
 
-Extension: I figured out checking the weather was also useful, so included that too.
+Extension: I figured out checking the weather was also useful, so included that too..
 
-Extension 2: Now I can send auto-emails (which I love for reminders) from the phone too :D
+Extension 2: Now I can send auto-emails (which I love for reminders) from the phone too :D. Yeah I know, kind of transforming the simple phone to a proxy for the smartphone now :D.
 
 # Solution
 
