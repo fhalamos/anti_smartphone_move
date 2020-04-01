@@ -4,8 +4,12 @@ from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 
 import calendar_requester
+import weather_requester
+import yaml
 
 app = Flask(__name__)
+
+config = yaml.load(open('config.yaml', 'r'), Loader=yaml.SafeLoader)
 
 @app.route("/sms", methods=['GET', 'POST'])
 def sms_reply():
@@ -17,7 +21,12 @@ def sms_reply():
     resp = MessagingResponse()
 
     # Add a message
-    resp.message(calendar_requester.get_events(message_body))
+    if(message_body=='' or message_body==config['todays_events_keyword'] or message_body==config['tomorrows_events_keyword']):
+      resp.message(calendar_requester.get_events(message_body))
+    elif(message_body==config['weather_keyword']):
+      resp.message(weather_requester.get_weather())
+    else:
+      resp.message('Wrong request keyword')
     
     return str(resp)
 

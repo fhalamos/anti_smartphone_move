@@ -16,17 +16,19 @@ For slack, email, etc etc? Use the computer. And no, you dont need to be checkin
 
 **Now, the only thing I do need to frequently check in my phone is my calendar for the day/following day.**
 
+Extension: I figured out learning the weather by sms was also useful, so included that too.
+
 # Solution
 
-This little system allows the user to send requests to a twilio phone number - through text messages - to receiv the google calendar events of the day or the following day.
+This little system allows the user to send requests to a twilio phone number - through text messages - to receive the google calendar events of the day or the following day.
 
 # Use
 
-Text your twilio phone number any random message to receive a list of the remaining events of the day. Text $tomorrow_keyword to receive list of events for tomorrow.
+Text your twilio phone number to receive a list of events from google calendar. Use the specific keywords defined in config.yaml to receive events of the current day, next day (or weather!).
 
 # System overview
 
-When someone sends a SMS to the Twilio phone number, Twilio will make an HTTP request to a server asking for instructions on what to do next. The server will be a very lightweight flask web application (receive_sms_api.py) that can accept incoming requests and process them. The web app will use the G Calendar API to process the request (calendar_requester.py).
+When someone sends a SMS to the Twilio phone number, Twilio will make an HTTP request to a server asking for instructions on what to do next. The server will be a very lightweight flask web application (receive_sms_api.py) that can accept incoming requests and process them. The web app will use the G Calendar API to process the request (calendar_requester.py), or OpenWeatherAPI for weather requests (weather_requester.py)
 
 
 # Setup
@@ -48,6 +50,8 @@ When someone sends a SMS to the Twilio phone number, Twilio will make an HTTP re
 
 ` export TWILIO_AUTH_TOKEN=auth_token`
 Get them from twilio.com/user/account
+
+`export OPENWEATHER_API_KEY=your_openweather_api_key`
 
 ` export TWILIO_PHONE_NUMBER=your_twilio_phone_number`
 <!-- ` export TWILIO_PHONE_NUMBER=+16672399039` -->
