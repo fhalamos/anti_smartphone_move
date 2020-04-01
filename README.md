@@ -67,6 +67,8 @@ Get them from twilio.com/user/account
 
 `python3 receive_sms_api.py`
 
+* Create and config an ngrok acount here: https://dashboard.ngrok.com/get-started, so as to create tunnels that do not expire (used for the webhook)
+
 * Configure your Twilio phone number to call a webhook URL whenever a new message comes in:
 
 `twilio phone-numbers:update "$TWILIO_PHONE_NUMBER" --sms-url="http://localhost:5000/sms"`
