@@ -14,7 +14,7 @@ Extension: I figured out checking the weather was also useful, so included that 
 
 Extension 2: Now I can send auto-emails (which I love for reminders) from the phone too :D. Yeah I know, kind of transforming the simple phone to a proxy for the smartphone now :D.
 
-![](ladrillo.png=182x102)
+![](ladrillo.png =182x102)
 
 # Solution
 
