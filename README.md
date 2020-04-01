@@ -28,7 +28,7 @@ Text your twilio phone number to receive a list of events from google calendar. 
 
 # System overview
 
-When someone sends a SMS to the Twilio phone number, Twilio will make an HTTP request to a server asking for instructions on what to do next. The server will be a very lightweight flask web application (receive_sms_api.py) that can accept incoming requests and process them. The web app will use the G Calendar API to process the request (calendar_requester.py), or OpenWeatherAPI for weather requests (weather_requester.py)
+When someone sends a SMS to the Twilio phone number, Twilio will make an HTTP request to a server asking for instructions on what to do next. The server will be a very lightweight flask web application (receive_sms_api.py) that can accept incoming requests and process them. The web app will use the G Calendar API for calendar requests(calendar_requester.py), or the OpenWeatherAPI for weather requests (weather_requester.py). Once Twilio receives the response from the server, it will send the SMS to the phone number that sent the request.
 
 
 # Setup
