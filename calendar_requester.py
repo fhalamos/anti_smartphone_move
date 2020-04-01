@@ -43,7 +43,7 @@ def get_events(day):
 
     # Call the Calendar API
     # Default is call for current day events
-    if(day==config['tomorrow_keyworkd']):
+    if(day==config['tomorrows_events_keyword']):
 
         tomorrow = (today + datetime.timedelta(days=1))
 
@@ -60,10 +60,18 @@ def get_events(day):
 
         now = datetime.datetime.utcnow().isoformat() + 'Z'
          
-        midnight = (datetime.datetime.combine(today, datetime.datetime.max.time()) + \
+
+        #Bug here. The thing is, if current time in Z time corresponds to one day later than local time, then midnight computed will be of the following day
+        #Ex, if local time is 1 pm, Z time is 6 pm, midgnight will be 11:39 pm, all good.
+        #But, if local time is 10 pm, Z time will be 4 am of following day, hence midnight will be 11:39 pm of the following day
+        local_midnight = (datetime.datetime.combine(today, datetime.datetime.max.time()) + \
             datetime.timedelta(hours=5)).isoformat() + 'Z'
 
-        events_list = service.events().list(calendarId='primary', timeMin=now, timeMax=midnight,
+        print(now)
+
+        print(midnight)
+
+        events_list = service.events().list(calendarId='primary', timeMin=now, timeMax=local_midnight,
                                         maxResults=10, singleEvents=True,
                                         orderBy='startTime').execute()
 
@@ -89,4 +97,4 @@ def get_events(day):
 
 
 if __name__ == '__main__':
-    print(get_events('tmr'))#'tmr'
+    print(get_events('tdy'))#'tmr'
