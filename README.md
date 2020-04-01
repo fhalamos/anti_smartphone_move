@@ -1,26 +1,20 @@
 # The problem
 
-I love and hate my smartphone. But ultimately, I dont like it. I just spent too much time looking at it - time I could spend interacting with people in real life, or doing more interesting stuff like reading a book or looking at the sky.
+I love and hate my smartphone. But ultimately, I don't like it. I just spent too much time looking at it - time I could spend interacting with people in real life, or doing more interesting stuff like reading a book or looking at the sky.
 
-I tried lots of things to reduce my exposure to my app - like other apps that dishable whatsapp, self enforce rules, etc -  but nothing really worked.
+I tried lots of things to reduce my exposure to my smartphone - like other apps that disable whatsapp, self enforce rules, etc -  but nothing really worked.
 
-So, ultimately, I just bought a [**great** cheap old school phone](https://www.amazon.com/Ushining-Feature-Unlocked-Mobile-Carrier/dp/B07VRLBZ1M), and decided to turn my smartphone off. I still turn it on (and immmediately off) every night for say 20 min to check importat whatsapps from back home, but nothing more.
+So, ultimately, I just bought a [**great** cheap old school phone](https://www.amazon.com/Ushining-Feature-Unlocked-Mobile-Carrier/dp/B07VRLBZ1M), and decided to turn my smartphone off. I still turn it on (and immediately off) every night for say 20 min to check whatsapps from back home, but nothing more.
 
-Can you really survive without a smartphone? Yes.
+I figure out I really dont need the smartphone. I don't need to be checking email, slack and news all the time - I can do that on the computer. For google maps I just check my routes in advance on the computer. For uber, I can always call a taxi, etc.
 
-For whatsapp? Use text messages, or better, call people. And avoid tons of useless texting.
+*The only thing I do need to frequently check in my phone is my calendar for the day/following day.* At least my calendar is something I continuously need to check, and I don't want to turn my computer on for that.
 
-For google maps? Go into a computer and look at g maps there.
-
-For slack, email, etc etc? Use the computer. And no, you dont need to be checking your email every 5 min.
-
-**Now, the only thing I do need to frequently check in my phone is my calendar for the day/following day.**
-
-Extension: I figured out learning the weather by sms was also useful, so included that too.
+Extension: I figured out checking the weather was also useful, so included that too.
 
 # Solution
 
-This little system allows the user to send requests to a twilio phone number - through text messages - to receive the google calendar events of the day or the following day.
+This little system allows the user to send requests to a twilio phone number - through text messages (sms) - to receive the google calendar events of the day or the following day.
 
 # Use
 
@@ -56,7 +50,7 @@ Get them from twilio.com/user/account
 ` export TWILIO_PHONE_NUMBER=your_twilio_phone_number`
 <!-- ` export TWILIO_PHONE_NUMBER=+16672399039` -->
 
-* Adapt config.yaml file to whatever you want your 'tomorrow' keyword to be
+* Adapt config.yaml file to whatever you want your  keywords to be
 
 ## Get the system running
 
@@ -71,7 +65,7 @@ Get them from twilio.com/user/account
 
 `python3 receive_sms_api.py`
 
-* Create and config an ngrok acount here: https://dashboard.ngrok.com/get-started, so as to create tunnels that do not expire (used for the webhook)
+* Create and config an ngrok acount here: https://dashboard.ngrok.com/get-started, so as to create a  tunnel that do not expire (used for pointing to the webhook) - next step.
 
 * Configure your Twilio phone number to call a webhook URL whenever a new message comes in:
 
