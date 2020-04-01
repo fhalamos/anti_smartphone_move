@@ -12,6 +12,8 @@ I figure out I really dont need the smartphone. I don't need to be checking emai
 
 Extension: I figured out checking the weather was also useful, so included that too.
 
+Extension 2: Now I can send auto-emails (which I love for reminders) from the phone too :D
+
 # Solution
 
 This little system allows the user to send requests to a twilio phone number - through text messages (sms) - to receive the google calendar events of the day or the following day.
