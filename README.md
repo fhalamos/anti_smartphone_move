@@ -1,3 +1,5 @@
+<img width="182" height="102">
+
 # The problem
 
 I love and hate my smartphone. But ultimately, I don't like it. I just spent too much time looking at it - time I could spend interacting with people in real life, or doing more interesting stuff like reading a book or looking at the sky.
@@ -14,7 +16,7 @@ Extension: I figured out checking the weather was also useful, so included that 
 
 Extension 2: Now I can send auto-emails (which I love for reminders) from the phone too :D. Yeah I know, kind of transforming the simple phone to a proxy for the smartphone now :D.
 
-![](ladrillo.png =182x102)
+![](ladrillo.png)
 
 # Solution
 
