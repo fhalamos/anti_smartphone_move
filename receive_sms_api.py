@@ -5,6 +5,7 @@ from twilio.twiml.messaging_response import MessagingResponse
 
 import calendar_requester
 import weather_requester
+import email_requester
 import yaml
 
 app = Flask(__name__)
@@ -25,6 +26,12 @@ def sms_reply():
       resp.message(calendar_requester.get_events(message_body))
     elif(message_body==config['weather_keyword']):
       resp.message(weather_requester.get_weather())
+    elif(message_body[0]==config['email_keyword']):
+      email_sent = email_requester.send_email(message_body[2:])
+      if(email_sent):
+        return ('', 204) #Do nothing, I dont want a confirmation sms
+      else:
+        resp.message("Error occurr when sending email")
     else:
       resp.message('Wrong request keyword')
     

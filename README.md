@@ -38,6 +38,8 @@ When someone sends a SMS to the Twilio phone number, Twilio will make an HTTP re
 
 * Need calendar_credentials.json in this directory, used to access g calendar API. Check Step 1 [here](https://developers.google.com/calendar/quickstart/python)
 
+* Same for gmail_credentials.json. Check Step 1 [here](https://developers.google.com/gmail/api/quickstart/python)
+
 * Declare environmental variables
 
 ` export TWILIO_ACCOUNT_SID=account_sid`
