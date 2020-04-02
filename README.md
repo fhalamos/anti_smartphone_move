@@ -48,10 +48,10 @@ When someone sends a SMS to the Twilio phone number, Twilio will make an HTTP re
 
 * Declare environmental variables
 
-` export TWILIO_ACCOUNT_SID=account_sid`
+<!-- ` export TWILIO_ACCOUNT_SID=account_sid`
 
 ` export TWILIO_AUTH_TOKEN=auth_token`
-Get them from twilio.com/user/account
+Get them from twilio.com/user/account -->
 
 `export OPENWEATHER_API_KEY=your_openweather_api_key`
 
