@@ -69,10 +69,7 @@ def get_events(day):
         end_time = local_midnight
 
 
-    personal_calendar_id = 'primary'
-    clases_calendar_id='ims45u9bmo1rse8skeb865pdjg@group.calendar.google.com'
-
-    calendars_ids = [personal_calendar_id, clases_calendar_id]
+    calendars_ids = config['calendars_ids']
 
     all_events_captured = []
     
